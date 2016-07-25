@@ -8,64 +8,88 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  PixelRatio,
   Text,
-  View
+  View,
+  Image,
 } from 'react-native';
 
-
-class  Header extends Component{
+class Header extends Component {
   render(){
     return(
-        <View style={styles.flex}>
-          <Text style={styles.font}>
-            <Text style={styles.font_1}>个人</Text>
-            <Text style={styles.font_2}>简介</Text>
-          </Text>
-        </View>
+      <View>
+      <View style={styles.header}>
+        <Text style={styles.title}>
+          <Text>个人</Text>
+          <Text>简历</Text>
+        </Text>
+      </View>
+      </View>
       );
   }
-  }
+}
 
-// class Info extends Component{
-//   render(){
-//     return(
-//       <View>
-//         <Text style={}></Text>
-//       </View>
-//       );
-//   }
-// }
+class Info extends Component {
+  render(){
+    return(
+      <View>
+      <View style={{marginTop:20,flex: 1, flexDirection: 'row'}}>
+      <Image
+        source={require('./logo.png')}
+        style={{width: 80, height: 80, marginLeft: 80, marginRight: 20}} />
+      <View style={{flex: 1,flexDirection: 'column',justifyContent: 'space-between',}}>
+       <Text style={{fontSize:20,}}>###</Text>
+       <Text>###</Text>
+       <Text>####</Text>
+       </View>
+      </View>
+      <View><Text style={{fontSize:20,textAlign:'center',marginTop:20,}}>掌握技能</Text></View>
+      </View>
+      );
+  }
+}
+
+class Skills extends Component {
+  render(){
+    return(
+      <View tyle={{height:50,}}>
+      <View style={{marginTop:20,flex: 1, flexDirection: 'row'}}>
+      <Image
+                source={require('./logo.png')}
+                style={{width: 60, height: 40, marginLeft: 60, marginRight: 20}} />
+      <View style={{flex: 1,flexDirection: 'column',justifyContent: 'space-between',}}>
+       <Text style={{fontSize:20,}}>姓名</Text>
+       <Text>职业</Text>
+       </View>
+      </View>
+      </View>
+      );
+  }
+}
 
 class AwesomeProject extends Component {
   render() {
     return (
-      <Header/>
+    <View>
+     <Header/>
+     <Info/>
+    </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-
-  flex:{
-    margin:25,
+  info:{
+   
+  },
+  header:{
     height:50,
-    borderBottomWidth:3/PixelRatio.get(),
-    borderBottomColor:'#EF2D36',
-    alignItems:'center',
-
+    backgroundColor:'#ff7777',
   },
-  font:{
+  title:{
     fontSize:25,
-    textAlign:'center'
-  },
-  font_1:{
-    color:'#CD1D1C',
-
-  },
-  font_2:{
-    color:'#FFF',
-    backgroundColor:'#ff6c6c',
+    textAlign:'center',
+    marginTop:10,
+    color:'#ffff',
   },
   container: {
     flex: 1,
@@ -86,4 +110,3 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
-
